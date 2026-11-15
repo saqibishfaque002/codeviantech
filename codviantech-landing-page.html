@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CodvianTech builds thoughtful software, scalable digital products, and technology solutions for ambitious businesses.">
+  <meta name="theme-color" content="#081326">
+  <title>CodvianTech — Build What’s Next</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #081326;
+      --bg-soft: #0d1b32;
+      --panel: #10213b;
+      --text: #f4f7fc;
+      --muted: #a8b5c9;
+      --blue: #5b8cff;
+      --cyan: #55d6e8;
+      --line: rgba(180, 203, 238, .14);
+      --max: 1160px;
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; line-height: 1.65; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    .container { width: min(var(--max), calc(100% - 44px)); margin: 0 auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: #8db3ff; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .eyebrow:before { content: ""; width: 22px; height: 1px; background: var(--cyan); }
+    .section { padding: 105px 0; }
+    .section-head { max-width: 680px; margin-bottom: 45px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { font-family: "Manrope", sans-serif; line-height: 1.15; letter-spacing: -.035em; }
+    h2 { margin: 17px 0; font-size: clamp(2rem, 4vw, 3.25rem); }
+    .section-head p, .muted { color: var(--muted); }
+    .gradient-text { color: transparent; background: linear-gradient(100deg, #fff 5%, #8eb4ff 55%, #55d6e8 100%); background-clip: text; -webkit-background-clip: text; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 50px; padding: 0 21px; border: 1px solid transparent; border-radius: 10px; background: linear-gradient(110deg, #5487ff, #3971ed); color: white; font-weight: 700; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; box-shadow: 0 10px 28px rgba(54, 111, 237, .22); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(54, 111, 237, .32); }
+    .btn-outline { background: transparent; border-color: var(--line); box-shadow: none; }
+    .btn-outline:hover { background: rgba(255,255,255,.06); }
+    /* Header */
+    .site-header { position: sticky; top: 0; z-index: 50; background: rgba(8,19,38,.86); border-bottom: 1px solid transparent; backdrop-filter: blur(18px); }
+    .site-header.scrolled { border-color: var(--line); }
+    .nav-wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; font-family: "Manrope", sans-serif; font-weight: 800; font-size: 1.22rem; letter-spacing: -.04em; }
+    .brand-mark { width: 37px; height: 37px; display: grid; place-items: center; border-radius: 11px; color: white; background: linear-gradient(145deg, #5d91ff, #3a5ed4 60%, #48c7df); box-shadow: 0 7px 20px rgba(70,126,240,.28); }
+    .brand-mark svg { width: 23px; height: 23px; }
+    .brand span span { color: #7da8ff; }
+    .nav-links { display: flex; align-items: center; gap: 30px; color: #c0cadd; font-size: .91rem; }
+    .nav-links a:hover { color: white; }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 10px; color: white; background: transparent; cursor: pointer; }
+    /* Hero */
+    .hero { position: relative; overflow: hidden; padding: 105px 0 95px; }
+    .hero:before { content: ""; position: absolute; width: 680px; height: 680px; top: -310px; right: -190px; border-radius: 50%; background: radial-gradient(circle, rgba(58,111,232,.24), transparent 67%); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 55px; position: relative; }
+    .hero h1 { max-width: 720px; margin: 22px 0; font-size: clamp(3rem, 6.2vw, 5.55rem); font-weight: 800; }
+    .hero-copy { max-width: 590px; color: #afbdd1; font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 31px; }
+    .hero-note { display: flex; align-items: center; gap: 12px; margin-top: 35px; color: #93a3bb; font-size: .86rem; }
+    .avatar-stack { display: flex; }
+    .avatar-stack i { width: 28px; height: 28px; margin-left: -7px; border: 2px solid var(--bg); border-radius: 50%; background: linear-gradient(135deg,#6d9bff,#4dd0dc); }
+    .avatar-stack i:first-child { margin-left: 0; }
+    .hero-art { min-height: 430px; position: relative; display: grid; place-items: center; }
+    .orbit { position: absolute; width: 390px; height: 390px; border: 1px solid rgba(121,164,255,.19); border-radius: 50%; }
+    .orbit:before, .orbit:after { content: ""; position: absolute; border: 1px solid rgba(121,164,255,.13); border-radius: 50%; inset: 35px; }
+    .orbit:after { inset: 78px; }
+    .core-card { position: relative; z-index: 2; width: min(330px, 88%); padding: 27px; border: 1px solid rgba(160,190,255,.24); border-radius: 24px; background: linear-gradient(145deg, rgba(23,48,82,.96), rgba(12,28,51,.94)); box-shadow: 0 30px 90px rgba(0,0,0,.35); transform: rotate(-4deg); }
+    .core-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; color: #9eb1cf; font-size: .78rem; }
+    .dots { display: flex; gap: 5px; }
+    .dots i { width: 6px; height: 6px; border-radius: 50%; background: #6485bc; }
+    .core-logo { display: grid; place-items: center; width: 68px; height: 68px; margin-bottom: 20px; border-radius: 19px; background: linear-gradient(145deg,#6094ff,#3b61d6 60%,#42c7dc); }
+    .core-logo svg { width: 42px; height: 42px; }
+    .core-card h3 { margin-bottom: 8px; font-size: 1.55rem; }
+    .core-card p { color: #aabbd4; font-size: .9rem; }
+    .code-lines { display: grid; gap: 8px; margin-top: 22px; }
+    .code-lines i { height: 6px; border-radius: 10px; background: linear-gradient(90deg,rgba(91,140,255,.75),rgba(85,214,232,.18)); }
+    .code-lines i:nth-child(2) { width: 78%; }
+    .code-lines i:nth-child(3) { width: 57%; }
+    .float-chip { position: absolute; z-index: 3; display: flex; align-items: center; gap: 9px; padding: 12px 15px; border: 1px solid var(--line); border-radius: 13px; background: rgba(16,33,59,.94); color: #dce8fb; box-shadow: 0 14px 35px rgba(0,0,0,.22); font-size: .82rem; }
+    .float-chip b { color: var(--cyan); font-size: 1rem; }
+    .chip-one { top: 65px; left: 0; }
+    .chip-two { right: -4px; bottom: 66px; }
+    /* Trust strip */
+    .trust-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.018); }
+    .trust-inner { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 23px 0; color: #899bb7; font-size: .88rem; }
+    .trust-inner strong { color: #d7e3f7; font-family: "Manrope", sans-serif; font-size: 1rem; }
+    /* Cards */
+    .cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+    .card { padding: 27px; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg,rgba(17,37,66,.82),rgba(12,27,49,.78)); transition: transform .25s,border-color .25s; }
+    .card:hover { transform: translateY(-5px); border-color: rgba(105,154,255,.45); }
+    .icon-box { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 23px; border: 1px solid rgba(106,157,255,.22); border-radius: 14px; color: #8eb4ff; background: rgba(78,127,229,.12); }
+    .icon-box svg { width: 23px; height: 23px; }
+    .card h3 { margin-bottom: 10px; font-size: 1.18rem; }
+    .card p { margin-bottom: 0; color: var(--muted); font-size: .94rem; }
+    /* About */
+    .about { background: linear-gradient(180deg, transparent, rgba(20,43,76,.34), transparent); }
+    .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 75px; align-items: center; }
+    .about-visual { min-height: 390px; position: relative; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 28px; background: radial-gradient(circle at 50% 42%,rgba(76,126,231,.22),transparent 55%), #0c1a30; overflow: hidden; }
+    .about-visual:before, .about-visual:after { content: ""; position: absolute; width: 270px; height: 270px; border: 1px solid rgba(110,158,255,.2); border-radius: 50%; }
+    .about-visual:after { width: 370px; height: 370px; }
+    .about-symbol { z-index: 1; display: grid; place-items: center; width: 135px; height: 135px; border-radius: 35px; background: linear-gradient(145deg,#6397ff,#385fd3 60%,#46c8db); box-shadow: 0 20px 60px rgba(60,113,226,.35); }
+    .about-symbol svg { width: 82px; height: 82px; }
+    .about-badge { position: absolute; z-index: 2; right: 22px; bottom: 22px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 14px; background: #10213b; }
+    .about-badge strong { display: block; font: 800 1.4rem "Manrope"; }
+    .about-badge span { color: var(--muted); font-size: .78rem; }
+    .about-copy p { color: var(--muted); }
+    .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin: 25px 0 30px; padding: 0; list-style: none; }
+    .check-list li { display: flex; gap: 9px; align-items: center; color: #d6e1f2; font-size: .9rem; }
+    .check-list li:before { content: "✓"; display: grid; place-items: center; width: 20px; height: 20px; flex: 0 0 20px; border-radius: 50%; color: var(--cyan); background: rgba(85,214,232,.12); font-size: .75rem; font-weight: 800; }
+    /* Products */
+    .product-card { min-height: 250px; display: flex; flex-direction: column; justify-content: space-between; }
+    .product-tag { display: inline-flex; width: fit-content; padding: 5px 10px; border: 1px solid rgba(111,159,255,.2); border-radius: 20px; color: #9dbbff; background: rgba(82,130,232,.1); font-size: .72rem; font-weight: 700; }
+    .product-card a { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: #8eb4ff; font-size: .88rem; font-weight: 700; }
+    /* Process */
+    .process-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; counter-reset: step; }
+    .step { position: relative; padding: 24px 20px; border-top: 1px solid rgba(111,159,255,.4); background: linear-gradient(180deg,rgba(17,37,66,.6),transparent); }
+    .step:before { counter-increment: step; content: "0" counter(step); display: block; margin-bottom: 24px; color: #70a0ff; font: 800 1.4rem "Manrope"; }
+    .step h3 { font-size: 1.1rem; }
+    .step p { margin-bottom: 0; color: var(--muted); font-size: .9rem; }
+    /* CTA */
+    .cta-band { padding: 55px; display: flex; justify-content: space-between; align-items: center; gap: 30px; border: 1px solid rgba(117,160,255,.24); border-radius: 26px; background: radial-gradient(circle at 80% 10%,rgba(77,135,245,.23),transparent 35%), linear-gradient(110deg,#11294a,#10213b); }
+    .cta-band h2 { max-width: 650px; margin: 0 0 10px; font-size: clamp(1.8rem,3.5vw,2.7rem); }
+    .cta-band p { margin: 0; color: var(--muted); }
+    /* Contact */
+    .contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; }
+    .contact-info p { color: var(--muted); }
+    .contact-detail { display: flex; align-items: flex-start; gap: 13px; margin-top: 24px; }
+    .contact-detail .icon-box { width: 42px; height: 42px; flex: 0 0 42px; margin: 0; }
+    .contact-detail strong { display: block; font-size: .92rem; }
+    .contact-detail span { color: var(--muted); font-size: .86rem; }
+    .contact-form { padding: 30px; border: 1px solid var(--line); border-radius: 22px; background: rgba(16,33,59,.76); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    .field { margin-bottom: 17px; }
+    .field label { display: block; margin-bottom: 7px; color: #dce6f5; font-size: .84rem; font-weight: 600; }
+    .field input, .field select, .field textarea { width: 100%; padding: 13px 14px; border: 1px solid rgba(172,196,231,.17); border-radius: 9px; outline: none; color: white; background: #0b1a30; transition: border-color .2s; }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: #6897ff; }
+    .field input::placeholder, .field textarea::placeholder { color: #71839e; }
+    .field select option { background: #0b1a30; }
+    .field textarea { min-height: 125px; resize: vertical; }
+    .form-note { margin: 13px 0 0; color: #8193ad; font-size: .78rem; }
+    .form-status { display: none; margin-top: 15px; padding: 12px; border-radius: 9px; color: #a9f0df; background: rgba(52,190,151,.1); font-size: .88rem; }
+    /* Footer */
+    footer { padding: 65px 0 25px; border-top: 1px solid var(--line); background: #061020; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 45px; padding-bottom: 45px; }
+    .footer-brand p { max-width: 330px; margin: 18px 0; color: var(--muted); font-size: .9rem; }
+    .socials { display: flex; gap: 9px; }
+    .socials a { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid var(--line); border-radius: 9px; color: #b5c4db; font-size: .78rem; font-weight: 700; }
+    .socials a:hover { color: white; border-color: #6796ff; }
+    .footer-col h4 { margin: 5px 0 18px; font: 700 .9rem "Manrope"; }
+    .footer-col a { display: block; margin: 11px 0; color: #91a1b9; font-size: .86rem; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 22px; border-top: 1px solid var(--line); color: #71829b; font-size: .8rem; }
+    .footer-bottom a { margin-left: 18px; }
+    @media (max-width: 900px) {
+      .nav-links { gap: 17px; }
+      .hero-grid { gap: 20px; }
+      .hero-art { transform: scale(.9); }
+      .about-grid { gap: 35px; }
+      .cards { grid-template-columns: repeat(2,1fr); }
+      .process-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; }
+      .footer-brand { grid-column: 1/-1; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 34px, var(--max)); }
+      .nav-wrap { min-height: 70px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-actions .btn { display: none; }
+      .nav-links { position: absolute; display: none; top: 70px; left: 0; right: 0; padding: 18px 24px 24px; flex-direction: column; align-items: stretch; gap: 0; border-bottom: 1px solid var(--line); background: #0a1830; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 12px 0; }
+      .hero { padding: 76px 0 65px; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: clamp(2.7rem, 13vw, 4.2rem); }
+      .hero-art { min-height: 350px; margin: -5px -15px 0; transform: scale(.88); }
+      .orbit { width: 340px; height: 340px; }
+      .chip-one { left: 2px; }
+      .chip-two { right: 0; }
+      .trust-inner { flex-wrap: wrap; justify-content: center; text-align: center; }
+      .trust-inner strong { width: 100%; }
+      .section { padding: 76px 0; }
+      .cards { grid-template-columns: 1fr; }
+      .about-visual { min-height: 310px; }
+      .check-list { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .cta-band { padding: 30px 24px; align-items: flex-start; flex-direction: column; }
+      .contact-grid { gap: 30px; }
+      .contact-form { padding: 21px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+      .footer-brand { grid-column: 1/-1; }
+      .footer-bottom { flex-direction: column; }
+      .footer-bottom a { margin: 0 14px 0 0; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="top">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="CodvianTech home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M12 8 5 16l7 8M20 8l7 8-7 8M18 5l-4 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Codvian<span>Tech</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#process">Our Process</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn" href="#contact">Let’s Talk <span aria-hidden="true">↗</span></a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Technology that moves you forward</span>
+          <h1>Build smarter.<br><span class="gradient-text">Move faster.</span></h1>
+          <p class="hero-copy">We turn ambitious ideas into reliable digital products. From custom software to connected business platforms, CodvianTech helps you create what’s next.</p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Start a project <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#solutions">Explore what we do</a>
+          </div>
+          <div class="hero-note"><span class="avatar-stack" aria-hidden="true"><i></i><i></i><i></i></span><span>Thoughtful engineering. Practical outcomes. Built to scale.</span></div>
+        </div>
+        <div class="hero-art" aria-label="Abstract CodvianTech software illustration">
+          <div class="orbit"></div>
+          <div class="float-chip chip-one"><b>✦</b> Ideas into impact</div>
+          <div class="float-chip chip-two"><b>⌘</b> Built for what’s next</div>
+          <div class="core-card">
+            <div class="core-top"><span>CODVIAN / DIGITAL STUDIO</span><span class="dots"><i></i><i></i><i></i></span></div>
+            <div class="core-logo"><svg viewBox="0 0 48 48" fill="none"><path d="m18 10-11 14 11 14M30 10l11 14-11 14M27 6l-6 36" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>Ideas, engineered.</h3>
+            <p>Purposeful technology for real-world progress.</p>
+            <div class="code-lines"><i></i><i></i><i></i></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-inner"><strong>One technology partner. Many possibilities.</strong><span>Custom software</span><span>Digital products</span><span>Business platforms</span><span>Product innovation</span></div>
+    </div>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">What we do</span><h2>Technology built around <span class="gradient-text">your ambition.</span></h2><p>We combine product thinking, thoughtful design, and dependable engineering to solve meaningful business challenges.</p></div>
+        <div class="cards">
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M7 8h10M7 12h6"/></svg></div><h3>Custom Software</h3><p>Purpose-built applications shaped around your workflows, users, and business goals.</p></article>
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 6h6m-6 4h6m-6 4h3m-1 5h2"/></svg></div><h3>Web & Mobile Apps</h3><p>Intuitive, responsive digital experiences that make everyday tasks simpler.</p></article>
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5h16v14H4zM8 9h8M8 13h5M8 17h8"/><path d="m16 2 3 3-3 3"/></svg></div><h3>Business Management Systems</h3><p>Connected tools for operations, sales, inventory, finance, education, and more.</p></article>
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v4m0 10v4M3 12h4m10 0h4M5.6 5.6l2.8 2.8m7.2 7.2 2.8 2.8m0-12.8-2.8 2.8m-7.2 7.2-2.8 2.8"/><circle cx="12" cy="12" r="4"/></svg></div><h3>Product Engineering</h3><p>From early concept to launch, we help shape, build, and evolve digital products.</p></article>
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="17" r="2"/></svg></div><h3>Cloud & Integrations</h3><p>Secure deployments, API integrations, and connected systems that work together.</p></article>
+          <article class="card"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5m0 14h16M7 15l4-4 3 2 5-6"/><path d="M16 7h3v3"/></svg></div><h3>Ongoing Support</h3><p>Continuous improvements, maintenance, and technical support as your needs grow.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-visual"><div class="about-symbol"><svg viewBox="0 0 48 48" fill="none"><path d="m18 10-11 14 11 14M30 10l11 14-11 14M27 6l-6 36" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="about-badge"><strong>Ideas → Impact</strong><span>Our approach to technology</span></div></div>
+        <div class="about-copy"><span class="eyebrow">Who we are</span><h2>A technology partner for <span class="gradient-text">the long run.</span></h2><p>CodvianTech is a software and digital solutions brand focused on making technology useful, accessible, and ready for change. We believe great software should do more than work—it should make work better.</p><p>We bring together clear thinking, practical design, and disciplined engineering to help businesses and teams turn complex needs into simple digital experiences.</p>
+          <ul class="check-list"><li>People-first problem solving</li><li>Scalable foundations</li><li>Clear communication</li><li>Quality-focused delivery</li></ul>
+          <a class="btn btn-outline" href="#contact">Get to know us <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solutions">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Our solutions</span><h2>A growing ecosystem of <span class="gradient-text">digital products.</span></h2><p>We build solutions for different industries and business needs. Each product can stand on its own while benefiting from a shared commitment to quality.</p></div>
+        <div class="cards">
+          <article class="card product-card"><div><span class="product-tag">Retail & Operations</span><h3 style="margin-top:18px">Point of Sale</h3><p>Streamline sales, orders, inventory, and daily operations with a connected POS experience.</p></div><a href="#contact">Discuss a POS solution <span>→</span></a></article>
+          <article class="card product-card"><div><span class="product-tag">Education</span><h3 style="margin-top:18px">School Management</h3><p>Bring academic, administrative, communication, and campus workflows together.</p></div><a href="#contact">Discuss an education platform <span>→</span></a></article>
+          <article class="card product-card"><div><span class="product-tag">Business Systems</span><h3 style="margin-top:18px">ERP & Management</h3><p>Make business processes more visible and connected with integrated management tools.</p></div><a href="#contact">Explore business software <span>→</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">How we work</span><h2>From first conversation to <span class="gradient-text">what’s next.</span></h2><p>A transparent process keeps the work focused, collaborative, and moving in the right direction.</p></div>
+        <div class="process-grid">
+          <article class="step"><h3>Discover</h3><p>Understand your goals, users, challenges, and what success looks like.</p></article>
+          <article class="step"><h3>Plan & Design</h3><p>Define the right approach, map the experience, and agree on priorities.</p></article>
+          <article class="step"><h3>Build & Test</h3><p>Develop in focused stages, validate the details, and refine with feedback.</p></article>
+          <article class="step"><h3>Launch & Grow</h3><p>Deploy with care, support your team, and improve as your needs evolve.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="cta-band"><div><h2>Have an idea worth building?</h2><p>Let’s turn your next big idea into a practical digital solution.</p></div><a class="btn" href="#contact">Let’s build together <span>↗</span></a></div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info"><span class="eyebrow">Get in touch</span><h2>Let’s start a <span class="gradient-text">conversation.</span></h2><p>Tell us a little about what you’re planning. Whether it’s a new product, a business platform, or an improvement to an existing system, we’d be glad to hear about it.</p>
+          <div class="contact-detail"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></div><div><strong>Email</strong><span>Configure your business email before launch</span></div></div>
+          <div class="contact-detail"><div class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg></div><div><strong>Working worldwide</strong><span>Remote collaboration across locations</span></div></div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-row"><div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="Enter your name" required></div><div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@company.com" required></div></div>
+          <div class="form-row"><div class="field"><label for="company">Company (optional)</label><input id="company" name="company" type="text" placeholder="Your company"></div><div class="field"><label for="service">What do you need?</label><select id="service" name="service" required><option value="">Choose a service</option><option>Custom software</option><option>Web or mobile application</option><option>Business management system</option><option>Cloud and integrations</option><option>Product engineering</option><option>Other</option></select></div></div>
+          <div class="field"><label for="message">Tell us about your project</label><textarea id="message" name="message" placeholder="A short overview of your idea, goals, or challenge..." required></textarea></div>
+          <button class="btn" type="submit">Prepare message <span aria-hidden="true">↗</span></button>
+          <p class="form-note">This demo form prepares an email in the visitor’s email app. Connect a form service or backend to receive submissions directly on your website.</p>
+          <div class="form-status" id="formStatus" role="status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none"><path d="M12 8 5 16l7 8M20 8l7 8-7 8M18 5l-4 22" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Codvian<span>Tech</span></span></a><p>Thoughtful software. Connected experiences. Technology built for what’s next.</p><div class="socials"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="GitHub">gh</a></div></div>
+        <div class="footer-col"><h4>Explore</h4><a href="#about">About us</a><a href="#services">Services</a><a href="#solutions">Solutions</a><a href="#process">Our process</a></div>
+        <div class="footer-col"><h4>What we build</h4><a href="#solutions">POS systems</a><a href="#solutions">School software</a><a href="#solutions">ERP platforms</a><a href="#services">Custom applications</a></div>
+        <div class="footer-col"><h4>Connect</h4><a href="#contact">Start a project</a><a href="#contact">General inquiries</a><a href="#contact">Partnerships</a></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> CodvianTech. All rights reserved.</span><span><a href="#top">Back to top ↑</a></span></div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('.site-header');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 12));
+    menuToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Replace this value with your real contact address before publishing.
+    const CONTACT_EMAIL = 'YOUR_EMAIL@example.com';
+    document.getElementById('contactForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const subject = encodeURIComponent('New project inquiry — CodvianTech');
+      const body = encodeURIComponent(
+        `Name: ${data.get('name')}\nEmail: ${data.get('email')}\nCompany: ${data.get('company') || 'Not provided'}\nService: ${data.get('service')}\n\nProject details:\n${data.get('message')}`
+      );
+      const status = document.getElementById('formStatus');
+      if (CONTACT_EMAIL === 'YOUR_EMAIL@example.com') {
+        status.style.display = 'block';
+        status.textContent = 'The contact form is ready. Add your real business email in the CONTACT_EMAIL setting in this file, or connect a form backend before publishing.';
+        return;
+      }
+      window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+      status.style.display = 'block';
+      status.textContent = 'Your email app should open with your project inquiry ready to send.';
+    });
+  </script>
+</body>
+</html>
