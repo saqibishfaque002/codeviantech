@@ -9,6 +9,8 @@ import {
   CheckCircle2,
   ArrowUpRight,
   ShieldCheck,
+  Clock,
+  Users,
 } from "lucide-react";
 import { getSiteSettings } from "@/lib/settings";
 import { DEFAULT_SETTINGS } from "@/types/settings";
@@ -16,73 +18,73 @@ import { DEFAULT_SETTINGS } from "@/types/settings";
 export const metadata = {
   title: "How We Work — CodvianTech",
   description:
-    "A simple, four-step guide to how we work with you: from understanding your goals to designing, building, and launching your software.",
+    "A transparent, 4-stage engineering roadmap: from architectural discovery to wireframing, agile development, and production launch.",
 };
 
 const PROCESS_STEPS = [
   {
     step: "01",
-    phase: "Listen & Plan",
+    phase: "Discovery & Blueprint",
     icon: Compass,
-    title: "Understanding what you really need",
+    title: "Understanding your operational realities",
     description:
-      "We sit down with you to learn about how your company works, where your team is losing time, and what success looks like for you. We ask the right questions early so there are no surprises down the line.",
+      "We begin with deep technical discovery. We analyze your existing workflow bottlenecks, data structures, and user personas. By asking hard questions early, we eliminate architectural surprises and define clear fixed timelines.",
     activities: [
-      "Walking through your current workflows and pain points",
-      "Deciding together which features to build first",
-      "Selecting the right tech tools and cloud hosting for your needs",
-      "Giving you a clear, fixed timeline and transparent budget",
+      "Mapping end-to-end data flows and approval chains",
+      "Prioritizing high-leverage features for the initial release",
+      "Selecting target cloud infrastructure, database engine, and tech stack",
+      "Delivering a transparent architectural specification and fixed quote",
     ],
-    timeline: "First 1 to 2 Weeks",
-    clientInvolvement: "A few friendly chats to share how your team works",
+    timeline: "Weeks 1 – 2",
+    clientInvolvement: "2 to 3 collaborative discovery sessions with key stakeholders",
   },
   {
     step: "02",
-    phase: "Design & Preview",
+    phase: "Design & UX Validation",
     icon: Layout,
-    title: "Seeing your screens before we build",
+    title: "Clickable prototypes before writing a single line of code",
     description:
-      "Before writing any code, we sketch out clickable design prototypes. You can click through every screen on your phone or computer to see how it feels and suggest changes before anything is finalized.",
+      "Before engineering begins, we design comprehensive, interactive prototypes in Figma. You test each workflow on your phone or workstation, giving feedback and confirming usability before code is written.",
     activities: [
-      "Creating simple layouts and screen flows",
-      "Adding your branding, company colors, and logos",
-      "Building a clickable prototype you can test yourself",
-      "Refining the design until you feel 100% happy with it",
+      "Crafting high-fidelity design systems and responsive component libraries",
+      "Validating user journey ergonomics and information architecture",
+      "Building a clickable prototype for internal stakeholder review",
+      "Refining UX flows until your team is 100% satisfied with the experience",
     ],
-    timeline: "Weeks 2 to 4",
-    clientInvolvement: "Trying out the prototype and sharing your honest thoughts",
+    timeline: "Weeks 2 – 4",
+    clientInvolvement: "Hands-on walkthrough of clickable prototypes and design feedback",
   },
   {
     step: "03",
-    phase: "Build & Test",
+    phase: "Sprint Engineering & Staging",
     icon: Code2,
-    title: "Bringing your screens to life with clean code",
+    title: "Agile sprints with live weekly progress demos",
     description:
-      "Our developers get to work building the actual software in focused, two-week stages. Every Friday, we show you what was built that week so you can watch your project come together step-by-step.",
+      "Our senior developers implement your application in focused two-week sprints. Every Friday, we deploy to a private staging environment and record a video breakdown so you can test working software as it matures.",
     activities: [
-      "Writing clean, reliable code that runs smoothly",
-      "Testing everything on multiple phones, tablets, and computers",
-      "Setting up a private preview link where you can test things anytime",
-      "Short weekly check-in calls to show you live progress",
+      "Writing clean, modular TypeScript, Next.js, and API services",
+      "Conducting automated unit, integration, and security checks",
+      "Continuous deployment to your private staging cloud sandbox",
+      "Weekly sprint review calls and direct communication in Slack",
     ],
-    timeline: "Weeks 4 to 10",
-    clientInvolvement: "Quick weekly check-ins to see the latest working build",
+    timeline: "Weeks 4 – 10",
+    clientInvolvement: "Short 20-minute Friday check-in to review live staging demo",
   },
   {
     step: "04",
-    phase: "Launch & Support",
+    phase: "Production Launch & Care",
     icon: Rocket,
-    title: "Going live smoothly and staying by your side",
+    title: "Seamless cutover and long-term technical guardianship",
     description:
-      "We handle the entire launch: moving your databases, setting up your domain, and making sure your team feels comfortable using the new tools. And we stick around to support you as your business grows.",
+      "We orchestrate the entire production release: zero-downtime database cutover, DNS routing, SSL provisioning, and staff onboarding. Post-launch, our engineers remain standing by with monitoring and proactive maintenance.",
     activities: [
-      "Moving your domain and setting up secure cloud servers",
-      "Helping your team learn how to use the new features",
-      "Setting up automated monitoring and daily backups",
-      "Handing over all passwords, files, and complete code ownership to you",
+      "Zero-downtime database migration and DNS configuration",
+      "Staff onboarding walkthroughs and comprehensive documentation handoff",
+      "24/7 automated telemetry, anomaly alerts, and automated backups",
+      "Complete transfer of repository access, credentials, and full IP ownership",
     ],
     timeline: "Launch Day & Beyond",
-    clientInvolvement: "Saying 'Let’s launch!' and watching your team use it",
+    clientInvolvement: "Official sign-off and celebration as your team goes live",
   },
 ];
 
@@ -90,8 +92,8 @@ export default async function ProcessPage() {
   const settings = await getSiteSettings();
 
   return (
-    <div className="py-16 lg:py-24">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+    <div className="py-20 lg:py-28 relative">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
           eyebrow={settings.process_eyebrow || DEFAULT_SETTINGS.process_eyebrow}
           title={settings.process_title || DEFAULT_SETTINGS.process_title}
@@ -100,51 +102,63 @@ export default async function ProcessPage() {
         />
 
         {/* Process Steps */}
-        <div className="my-16 space-y-12">
+        <div className="my-16 sm:my-20 space-y-10 sm:space-y-12">
           {PROCESS_STEPS.map((step, idx) => {
             const Icon = step.icon;
 
             return (
               <div
                 key={idx}
-                className="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-line/80 hover:border-brand-blue/40 transition-colors relative overflow-hidden"
+                className="glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] hover:border-blue-500/35 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  <div className="lg:col-span-3 space-y-3">
-                    <span className="font-heading font-extrabold text-5xl sm:text-6xl text-brand-blue/40 block">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  {/* Step Metadata Left Column */}
+                  <div className="lg:col-span-4 space-y-4">
+                    <span className="font-heading font-extrabold text-5xl sm:text-6xl text-blue-500/30 block tracking-tight">
                       {step.step}
                     </span>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/15 border border-brand-blue/30 text-brand-cyan text-xs font-bold uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/[0.08] border border-blue-500/20 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
                       <Icon className="w-3.5 h-3.5" />
                       <span>{step.phase}</span>
                     </div>
-                    <div className="text-xs text-brand-muted space-y-1 pt-2">
-                      <p>
-                        <strong className="text-white">Typical Timeline:</strong> {step.timeline}
-                      </p>
-                      <p>
-                        <strong className="text-white">What we need from you:</strong> {step.clientInvolvement}
-                      </p>
+
+                    <div className="space-y-2.5 pt-2 text-xs">
+                      <div className="flex items-start gap-2 text-slate-300">
+                        <Clock className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <strong className="text-white block">Expected Duration:</strong>
+                          <span className="text-brand-muted">{step.timeline}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2 text-slate-300">
+                        <Users className="w-4 h-4 text-cyan-400 mt-0.5 flex-shrink-0" />
+                        <div>
+                          <strong className="text-white block">Your Commitment:</strong>
+                          <span className="text-brand-muted">{step.clientInvolvement}</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="lg:col-span-9 space-y-4">
-                    <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+                  {/* Step Activities Right Column */}
+                  <div className="lg:col-span-8 space-y-4">
+                    <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
                       {step.title}
                     </h3>
-                    <p className="text-sm sm:text-base text-brand-muted leading-relaxed">
+                    <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
                       {step.description}
                     </p>
 
-                    <div className="pt-4 border-t border-brand-line">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">
-                        What happens in this stage:
+                    <div className="pt-4 border-t border-white/[0.06]">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3.5 flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        <span>Key Deliverables & Milestones:</span>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {step.activities.map((act, aIdx) => (
-                          <div key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                            <CheckCircle2 className="w-4 h-4 text-brand-cyan mt-0.5 flex-shrink-0" />
-                            <span>{act}</span>
+                          <div key={aIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 mt-2 flex-shrink-0" />
+                            <span className="leading-relaxed">{act}</span>
                           </div>
                         ))}
                       </div>
@@ -156,27 +170,27 @@ export default async function ProcessPage() {
           })}
         </div>
 
-        {/* Confidence Banner */}
-        <div className="my-16 p-8 sm:p-10 rounded-2xl bg-brand-panel/90 border border-brand-blue/40 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0">
-              <ShieldCheck className="w-6 h-6" />
+        {/* Commercial Confidence Banner */}
+        <div className="my-16 sm:my-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#111B30] to-[#0A101E] border border-blue-500/30 flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
+          <div className="flex items-center gap-5">
+            <div className="w-14 h-14 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 flex-shrink-0 shadow-sm">
+              <ShieldCheck className="w-7 h-7" />
             </div>
             <div>
-              <h4 className="font-heading font-bold text-lg text-white">
-                You own 100% of your software and source code
+              <h4 className="font-heading font-extrabold text-xl text-white tracking-tight">
+                100% Unencumbered Source Code & IP Ownership
               </h4>
-              <p className="text-xs sm:text-sm text-brand-muted">
-                No licensing lock-ins. All code, databases, and assets are completely transferred to your company upon project completion.
+              <p className="text-sm text-brand-muted mt-1 leading-relaxed max-w-xl font-normal">
+                No proprietary lock-ins or surprise fees. All code, databases, design assets, and cloud credentials are comprehensively transferred to your organization upon project completion.
               </p>
             </div>
           </div>
 
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-xl bg-brand-blue hover:bg-[#4375ee] text-white font-bold text-xs uppercase tracking-wider transition-colors inline-flex items-center gap-2 flex-shrink-0"
+            className="btn-primary text-xs uppercase tracking-wider font-bold py-3.5 px-6 flex-shrink-0"
           >
-            <span>Start with a friendly chat</span>
+            <span>Book Architectural Discovery</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

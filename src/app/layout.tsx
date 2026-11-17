@@ -77,8 +77,8 @@ export default async function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/brand/apple-touch-icon.png" />
         <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/assets/brand/apple-touch-icon-precomposed.png" />
         <link rel="manifest" href="/assets/brand/site.webmanifest" />
-        <meta name="theme-color" content="#081326" />
-        <meta name="msapplication-TileColor" content="#081326" />
+        <meta name="theme-color" content="#090D16" />
+        <meta name="msapplication-TileColor" content="#090D16" />
         <style dangerouslySetInnerHTML={{ __html: `
           nextjs-portal,
           [data-nextjs-dev-tools-button],
@@ -94,7 +94,8 @@ export default async function RootLayout({
           }
         `}} />
       </head>
-      <body className="bg-brand-bg text-brand-text min-h-screen flex flex-col font-sans antialiased selection:bg-brand-blue/30 selection:text-white">
+      <body className="bg-brand-bg text-brand-text min-h-screen flex flex-col font-sans antialiased selection:bg-brand-blue/30 selection:text-white relative">
+        <div className="fixed inset-0 bg-grid-pattern bg-dot-fade pointer-events-none z-0 opacity-40" />
         <SettingsProvider settings={settings}>
           <ToastProvider>
             <Navbar settings={settings} />

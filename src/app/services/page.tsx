@@ -16,98 +16,131 @@ import {
   ArrowUpRight,
   Calculator,
   Sparkles,
+  Shield,
+  Clock,
+  Code2,
 } from "lucide-react";
 
 const SERVICES_DATA = [
   {
     id: "custom-software",
     icon: Layers,
-    title: "Custom Software Development",
-    tagline: "Software shaped around how your team actually works",
+    title: "Custom Software Engineering",
+    tagline: "Software shaped strictly around how your enterprise operates",
     description:
-      "Most commercial software makes you change how you do business just to fit their rigid boxes. We build clean, reliable software that bends around your real routines, eliminating repetitive tasks and giving your staff tools they genuinely enjoy opening every morning.",
+      "Off-the-shelf software forces your organization to compromise its operational edge. We architect bespoke, highly scalable software platforms that bend around your team's exact procedures—eliminating redundant paperwork, automating handoffs, and giving your employees software they truly appreciate.",
     features: [
-      "Built specifically for your team’s daily steps and approvals",
-      "Fast, dependable databases that keep your data safe and private",
-      "Permissions so each team member sees only what they need",
-      "Automated backups and safeguards to prevent any lost work",
+      "Tailored to your exact business rules, approvals, and compliance requirements",
+      "High-throughput relational databases with strict access control and auditing",
+      "Granular role-based permissions (RBAC) ensuring data privacy across teams",
+      "Automated point-in-time recovery and snapshot backups to protect critical assets",
     ],
-    deliverables: ["Complete project blueprint", "100% full source code and ownership", "Easy-to-read documentation", "Smooth setup on your servers"],
+    deliverables: [
+      "Complete Technical Specification Blueprint",
+      "100% Unencumbered Source Code Ownership",
+      "Developer & API Architecture Documentation",
+      "Turnkey Production Deployment & Cloud Setup",
+    ],
   },
   {
     id: "web-mobile",
     icon: Smartphone,
     title: "Web & Mobile Applications",
-    tagline: "Modern websites and apps that customers find easy to use",
+    tagline: "Fast, resilient cross-platform apps that delight end users",
     description:
-      "A great app or web portal should never need a user manual. We create fast, clean digital experiences for phones and browsers that load in the blink of an eye and guide your customers naturally toward getting things done.",
+      "A superior digital product feels effortless from the first click. We craft lightning-fast web applications and native-feel mobile apps for iOS and Android that maintain 60fps animations, intuitive ergonomics, and offline capability for users on the move.",
     features: [
-      "Fast web apps that look sharp on laptops, tablets, and phones",
-      "Dedicated apps for both Apple iPhone and Android devices",
-      "Clean dashboards and live notifications that keep people informed",
-      "Offline support so field staff can still take notes without a signal",
+      "Sub-second load times optimized for desktop, tablet, and mobile displays",
+      "Native Android and iOS mobile app delivery via React Native and Flutter",
+      "Real-time reactive dashboards with instant push and websocket updates",
+      "Offline cache support allowing field operations without active connectivity",
     ],
-    deliverables: ["Published apps on Apple App Store & Google Play", "Responsive web portal", "Complete design layouts", "Automated deployment setup"],
+    deliverables: [
+      "App Store & Google Play Store Submission",
+      "Fully Responsive Web Portal (Next.js)",
+      "Design System & UI Component Library",
+      "Automated CI/CD Deployment Pipeline",
+    ],
   },
   {
     id: "business-management",
     icon: Database,
-    title: "Business Management (ERP & CRM)",
-    tagline: "Bring your inventory, sales, and accounts into one place",
+    title: "Enterprise ERP & CRM Systems",
+    tagline: "Unify inventory, billing, purchase orders, and customer lifecycles",
     description:
-      "When different departments run on separate spreadsheets, numbers get lost and people get frustrated. We connect your daily sales, warehouse stock, vendor purchase orders, and customer messages into a single, clean overview where everything makes sense.",
+      "Disconnected spreadsheets and isolated software create blind spots that cost businesses millions in lost revenue. We unify your daily transactions, multi-warehouse inventory, procurement pipelines, and customer interactions into a single, high-fidelity operational cockpit.",
     features: [
-      "Invoicing and payment tracking with clear payment status",
-      "Real-time inventory counts so you never run out of critical stock",
-      "Customer contact histories so your team never misses a follow-up",
-      "Simple weekly reports that show exactly where your business stands",
+      "Automated billing, invoicing, and real-time payment reconciliation",
+      "Live multi-warehouse inventory counts with automatic low-stock alerts",
+      "Centralized client communication records with SLA follow-up triggers",
+      "Executive business intelligence dashboards with exportable financial KPIs",
     ],
-    deliverables: ["Fully configured management dashboard", "Safe transfer of your current data", "Hands-on walkthrough for your team", "Ongoing technical help agreement"],
+    deliverables: [
+      "Configured Enterprise Management Dashboard",
+      "Safe Migration & Sanitization of Legacy Data",
+      "Comprehensive Team Training & Video Guides",
+      "Dedicated Technical Support Agreement",
+    ],
   },
   {
     id: "product-engineering",
     icon: Cpu,
-    title: "Startup Product Development",
-    tagline: "Turn your early idea into a working product people can use",
+    title: "Startup MVP & Product Engineering",
+    tagline: "Translate napkin concepts into market-tested software in weeks",
     description:
-      "When you have an exciting business idea, spending a year in planning can mean missing your window. We help founders turn napkin sketches into a polished, working first version in just a few short weeks, so you can start talking to real customers and investors right away.",
+      "When building a new digital product, slow iteration kills momentum. We help ambitious founders engineer high-polish, production-grade Minimum Viable Products (MVPs) in 4 to 8 weeks, giving you the architectural foundation to impress early users and close institutional funding.",
     features: [
-      "Clickable screen prototypes to test concepts before writing code",
-      "Focused feature planning to build what matters most first",
-      "Weekly video check-ins so you see live progress every Friday",
-      "Built-in visitor analytics to see how people actually use the product",
+      "Rapid interactive Figma prototypes to validate UX before writing code",
+      "Ruthlessly focused scope definition targeting your core value metric",
+      "Weekly staging builds and video walkthroughs every single Friday",
+      "Integrated telemetry and user tracking to observe real behavioral cohorts",
     ],
-    deliverables: ["Live working application ready for users", "Demo walkthrough video for investors", "User feedback analytics", "A clear roadmap for future updates"],
+    deliverables: [
+      "Production-Ready Software Deployed to Web/Mobile",
+      "Investor-Ready Product Walkthrough Video",
+      "Telemetry & Conversion Analytics Dashboard",
+      "Quarterly Product Roadmap & Technical Debt Log",
+    ],
   },
   {
     id: "cloud-integrations",
     icon: Cloud,
-    title: "Cloud Infrastructure & Tool Connections",
-    tagline: "Make sure all your business tools talk to each other cleanly",
+    title: "Cloud Infrastructure & API Integrations",
+    tagline: "Ensure all your mission-critical tools communicate effortlessly",
     description:
-      "Your company already relies on different tools for email, payments, and shipping. We build safe, reliable bridges between them so you never have to copy and paste customer details between three different windows ever again.",
+      "Modern companies run on diverse SaaS platforms. We construct secure, hardened integration bridges between your internal systems and external services like Stripe, PayPal, Salesforce, logistics carriers, and accounting software, eliminating manual copy-pasting forever.",
     features: [
-      "Connections with payment processors like Stripe, PayPal, and banks",
-      "Reliable hosting setup on modern cloud servers like AWS and Google Cloud",
-      "Automatic data syncing between your website and your internal tools",
-      "Strict data protection so customer information stays secure",
+      "Production payment gateways (Stripe, PayPal, banking webhooks)",
+      "Zero-downtime containerized infrastructure on AWS, Google Cloud, and Vercel",
+      "Bi-directional background queues for asynchronous data synchronization",
+      "SOC2-compliant credential vaults and strict cryptographic verification",
     ],
-    deliverables: ["Automated cloud server configuration", "Secure connection setup", "Security verification check", "Step-by-step recovery plan"],
+    deliverables: [
+      "Infrastructure-as-Code (Terraform / Docker) Templates",
+      "Secure API Gateway with Rate-Limiting & Auth",
+      "Penetration Testing & Security Verification",
+      "Disaster Recovery & Redundancy Playbook",
+    ],
   },
   {
     id: "ongoing-support",
     icon: Headphones,
-    title: "Care & Long-Term Technical Support",
-    tagline: "A dependable technical team ready whenever you need us",
+    title: "Continuous Care & Support Engineering",
+    tagline: "A dedicated engineering team guarding your uptime 24/7",
     description:
-      "Good software shouldn't stop receiving care once it goes live. Our support plans make sure your platform stays fast, up-to-date, and completely secure, giving you peace of mind that a team of real developers is watching over your systems 24/7.",
+      "Software requires diligent care to stay resilient against new threats and scaling bottlenecks. Our enterprise support contracts provide proactive security patching, database optimization, continuous dependency upgrades, and dedicated engineer hours for rapid feature enhancements.",
     features: [
-      "Around-the-clock monitoring to catch and fix issues before users notice",
-      "Regular software security updates and bug fixes",
-      "Fast response whenever your staff has an urgent question",
-      "Dedicated developer hours every month to add new small features",
+      "24/7 automated synthetic uptime and health monitoring",
+      "Regular vulnerability assessments and zero-day security patching",
+      "Guaranteed emergency response SLAs for critical system outages",
+      "Monthly allocation of engineering sprint hours for new minor features",
     ],
-    deliverables: ["Monthly health check summary", "Direct chat channel with our engineers", "Staging environment for safe testing", "Regular automated backup checks"],
+    deliverables: [
+      "Monthly System Performance & Security Audit",
+      "Direct Slack / Discord Channel with Lead Engineers",
+      "Dedicated Staging Sandbox for Pre-release Testing",
+      "Daily Automated Cloud Snapshots & Backup Verification",
+    ],
   },
 ];
 
@@ -121,11 +154,11 @@ export default function ServicesPage() {
   const scopeMultiplier = scope === "mvp" ? 1 : scope === "full" ? 1.8 : 2.5;
   const cloudCost = cloudNeeded ? 3500 : 0;
   const totalMin = Math.round(baseCost * scopeMultiplier + cloudCost);
-  const totalMax = Math.round(totalMin * 1.4);
+  const totalMax = Math.round(totalMin * 1.35);
 
   return (
-    <div className="py-16 lg:py-24">
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+    <div className="py-20 lg:py-28 relative">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         <SectionHeader
           eyebrow={settings.services_section_eyebrow || DEFAULT_SETTINGS.services_section_eyebrow}
           title={settings.services_section_title || DEFAULT_SETTINGS.services_section_title}
@@ -133,7 +166,8 @@ export default function ServicesPage() {
           description={settings.services_section_desc || DEFAULT_SETTINGS.services_section_desc}
         />
 
-        <div className="space-y-16 my-16">
+        {/* DETAILED SERVICES LIST */}
+        <div className="space-y-12 sm:space-y-16 my-16">
           {SERVICES_DATA.map((service) => {
             const Icon = service.icon;
 
@@ -141,59 +175,68 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.id}
-                className="glass-panel p-8 sm:p-12 rounded-3xl border border-brand-line/80 hover:border-brand-blue/40 transition-colors"
+                className="glass-panel p-8 sm:p-12 rounded-3xl border border-white/[0.08] hover:border-blue-500/35 transition-all duration-300 relative overflow-hidden"
               >
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                  <div className="lg:col-span-7 space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-brand-blue/15 border border-brand-blue/30 flex items-center justify-center text-brand-cyan">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                  {/* Left Column: Details & Features */}
+                  <div className="lg:col-span-7 space-y-5">
+                    <div className="w-12 h-12 rounded-xl bg-blue-500/[0.08] border border-blue-500/20 flex items-center justify-center text-cyan-400 shadow-sm">
                       <Icon className="w-6 h-6" />
                     </div>
+
                     <div>
-                      <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
+                      <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white tracking-tight">
                         {service.title}
                       </h3>
-                      <p className="text-sm font-semibold text-brand-cyan mt-1">
+                      <p className="text-sm font-semibold text-cyan-400 mt-1.5">
                         {service.tagline}
                       </p>
                     </div>
-                    <p className="text-sm sm:text-base text-brand-muted leading-relaxed">
+
+                    <p className="text-sm sm:text-base text-brand-muted leading-relaxed font-normal">
                       {service.description}
                     </p>
 
-                    <div className="pt-4">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">
-                        What you get with this service:
+                    <div className="pt-3">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3.5 flex items-center gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        <span>Core Capabilities & Architecture:</span>
                       </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {service.features.map((feat, fIdx) => (
-                          <div key={fIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
-                            <CheckCircle2 className="w-4 h-4 text-brand-cyan mt-0.5 flex-shrink-0" />
-                            <span>{feat}</span>
+                          <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2 flex-shrink-0" />
+                            <span className="leading-relaxed">{feat}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
 
-                  <div className="lg:col-span-5 p-6 rounded-2xl bg-brand-panel/90 border border-brand-line space-y-6">
-                    <h4 className="font-heading font-bold text-sm text-white uppercase tracking-wider">
-                      What we hand over to you:
-                    </h4>
-                    <ul className="space-y-2.5">
+                  {/* Right Column: Commercial Deliverables & Action Card */}
+                  <div className="lg:col-span-5 p-7 rounded-2xl bg-[#0B101D] border border-white/[0.08] space-y-6 shadow-xl">
+                    <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                      <h4 className="font-heading font-bold text-xs text-white uppercase tracking-wider">
+                        Official Deliverables
+                      </h4>
+                      <span className="text-[11px] font-mono text-emerald-400">100% Owned</span>
+                    </div>
+
+                    <ul className="space-y-3">
                       {service.deliverables.map((del, dIdx) => (
-                        <li key={dIdx} className="flex items-center gap-2 text-xs font-medium text-brand-muted">
-                          <span className="w-1.5 h-1.5 rounded-full bg-brand-blue" />
-                          <span>{del}</span>
+                        <li key={dIdx} className="flex items-start gap-2.5 text-xs font-medium text-slate-300">
+                          <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                          <span className="leading-relaxed">{del}</span>
                         </li>
                       ))}
                     </ul>
 
-                    <div className="pt-4 border-t border-brand-line">
+                    <div className="pt-2 border-t border-white/[0.06]">
                       <Link
                         href={`/contact?service=${encodeURIComponent(service.title)}`}
-                        className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-brand-blue to-[#3366e2] hover:shadow-lg hover:shadow-brand-blue/25 transition-all"
+                        className="btn-primary w-full text-xs font-bold py-3.5"
                       >
-                        <span>Discuss this with our team</span>
+                        <span>Schedule Technical Consultation</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -204,112 +247,123 @@ export default function ServicesPage() {
           })}
         </div>
 
-        {/* INTERACTIVE SCOPE ESTIMATOR */}
-        <div className="my-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-[#0c1a32] via-[#09152b] to-[#061021] border border-brand-blue/40 shadow-2xl relative overflow-hidden">
-          <div className="ambient-glow w-72 h-72 top-0 right-0 bg-brand-cyan/15" />
+        {/* INTERACTIVE SCOPE & BUDGET ESTIMATOR */}
+        <div className="my-24 p-8 sm:p-12 lg:p-14 rounded-3xl bg-gradient-to-br from-[#0D1527] via-[#0A101E] to-[#070B14] border border-blue-500/30 shadow-2xl relative overflow-hidden">
+          <div className="ambient-glow w-80 h-80 top-0 right-0 bg-blue-600/15 pointer-events-none" />
 
-          <div className="relative z-10 max-w-3xl">
-            <div className="inline-flex items-center gap-2 text-xs font-bold text-brand-cyan uppercase tracking-wider mb-2">
+          <div className="relative z-10 max-w-4xl">
+            <div className="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">
               <Calculator className="w-4 h-4" />
-              <span>Ballpark Project Estimator</span>
+              <span>Interactive Scope Estimator</span>
             </div>
-            <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white">
-              Get an honest estimate of what your project might cost
+            <h3 className="font-heading font-extrabold text-2xl sm:text-4xl text-white tracking-tight">
+              Transparent Ballpark Project Calculator
             </h3>
-            <p className="text-sm text-brand-muted mt-2">
-              Select your rough requirements below to see a realistic starting budget range. We believe in being transparent about numbers right from the start.
+            <p className="text-sm sm:text-base text-brand-muted mt-2 max-w-2xl leading-relaxed">
+              We believe in upfront, transparent pricing. Configure your high-level parameters below to get an honest ballpark estimate for professional delivery.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
-              <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                  1. What are we building?
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
+              {/* Step 1 */}
+              <div className="space-y-3">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  1. Platform Target
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {[
-                    { id: "web", label: "Web Portal or Web App" },
-                    { id: "mobile", label: "Mobile App (iPhone & Android)" },
-                    { id: "enterprise", label: "Connected Business ERP" },
+                    { id: "web", label: "Web Portal / SaaS App", badge: "Next.js 16" },
+                    { id: "mobile", label: "iOS & Android Mobile App", badge: "Cross-Platform" },
+                    { id: "enterprise", label: "Full ERP / Multi-System", badge: "Unified Suite" },
                   ].map((item) => (
                     <button
                       key={item.id}
                       onClick={() => setPlatform(item.id)}
-                      className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium border transition-colors ${
+                      className={`w-full text-left p-3.5 rounded-xl text-xs font-medium border transition-all duration-200 flex flex-col gap-1 ${
                         platform === item.id
-                          ? "bg-brand-blue/20 border-brand-blue text-white"
-                          : "bg-slate-900/60 border-brand-line text-brand-muted hover:border-brand-line"
+                          ? "bg-blue-500/15 border-blue-500 text-white shadow-sm"
+                          : "bg-white/[0.02] border-white/[0.08] text-brand-muted hover:border-white/[0.15]"
                       }`}
                     >
-                      {item.label}
+                      <span className="font-semibold text-slate-200">{item.label}</span>
+                      <span className="text-[10px] text-cyan-400 font-mono">{item.badge}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                  2. How far along is the project?
+              {/* Step 2 */}
+              <div className="space-y-3">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  2. Project Maturity
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {[
-                    { id: "mvp", label: "A quick first version (4 to 6 weeks)" },
-                    { id: "full", label: "A full, feature-rich platform" },
-                    { id: "enterprise", label: "Multi-branch, large team system" },
+                    { id: "mvp", label: "Rapid MVP / v1.0 Launch", badge: "4 to 6 Weeks" },
+                    { id: "full", label: "Full Commercial Platform", badge: "8 to 12 Weeks" },
+                    { id: "enterprise", label: "Multi-Region Enterprise", badge: "12+ Weeks" },
                   ].map((item) => (
                     <button
                       key={item.id}
                       onClick={() => setScope(item.id)}
-                      className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium border transition-colors ${
+                      className={`w-full text-left p-3.5 rounded-xl text-xs font-medium border transition-all duration-200 flex flex-col gap-1 ${
                         scope === item.id
-                          ? "bg-brand-blue/20 border-brand-blue text-white"
-                          : "bg-slate-900/60 border-brand-line text-brand-muted hover:border-brand-line"
+                          ? "bg-blue-500/15 border-blue-500 text-white shadow-sm"
+                          : "bg-white/[0.02] border-white/[0.08] text-brand-muted hover:border-white/[0.15]"
                       }`}
                     >
-                      {item.label}
+                      <span className="font-semibold text-slate-200">{item.label}</span>
+                      <span className="text-[10px] text-cyan-400 font-mono">{item.badge}</span>
                     </button>
                   ))}
                 </div>
               </div>
 
-              <div>
-                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">
-                  3. Cloud hosting & care plan
+              {/* Step 3 */}
+              <div className="space-y-3">
+                <label className="block text-xs font-bold text-slate-300 uppercase tracking-wider">
+                  3. Production Readiness
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <button
                     onClick={() => setCloudNeeded(!cloudNeeded)}
-                    className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium border transition-colors ${
+                    className={`w-full text-left p-3.5 rounded-xl text-xs font-medium border transition-all duration-200 ${
                       cloudNeeded
-                        ? "bg-brand-cyan/20 border-brand-cyan text-white"
-                        : "bg-slate-900/60 border-brand-line text-brand-muted"
+                        ? "bg-cyan-500/15 border-cyan-500/60 text-white shadow-sm"
+                        : "bg-white/[0.02] border-white/[0.08] text-brand-muted"
                     }`}
                   >
-                    {cloudNeeded ? "✓ Cloud Setup & Care Plan Included" : "+ Standard Handoff Only"}
+                    <div className="font-semibold text-slate-200">
+                      {cloudNeeded ? "✓ Cloud Setup & Care Plan" : "+ Code Handoff Only"}
+                    </div>
+                    <p className="text-[10px] text-slate-400 mt-1 leading-relaxed">
+                      Includes containerized server setup, automated backups, and 30-day post-launch warranty.
+                    </p>
                   </button>
-                  <p className="text-[11px] text-slate-400 leading-relaxed pt-2">
-                    Includes server configuration, security tests, and our team standing by after launch.
-                  </p>
                 </div>
               </div>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-900/90 border border-brand-blue/50 flex flex-col sm:flex-row items-center justify-between gap-6">
+            {/* ESTIMATE OUTPUT TILE */}
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#0B101D] border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
               <div>
-                <span className="text-xs text-brand-muted uppercase tracking-wider">
-                  Realistic Starting Range:
+                <span className="text-xs text-brand-muted uppercase tracking-wider font-semibold block mb-1">
+                  Estimated Investment Range:
                 </span>
-                <div className="font-heading font-extrabold text-2xl sm:text-3xl text-brand-cyan mt-1">
+                <div className="font-heading font-extrabold text-3xl sm:text-4xl text-cyan-400">
                   ${totalMin.toLocaleString()} – ${totalMax.toLocaleString()}{" "}
-                  <span className="text-xs text-slate-400 font-normal">USD</span>
+                  <span className="text-xs text-slate-400 font-mono font-normal">USD</span>
                 </div>
+                <p className="text-xs text-slate-400 mt-1">
+                  Fixed quotes guaranteed upon architectural review. Zero hidden fees.
+                </p>
               </div>
 
               <Link
                 href={`/contact?budget=${encodeURIComponent(`$${totalMin.toLocaleString()} - $${totalMax.toLocaleString()}`)}`}
-                className="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:brightness-110 transition-all flex items-center gap-2"
+                className="btn-primary px-7 py-4 text-xs font-bold uppercase tracking-wider flex-shrink-0"
               >
-                <Sparkles className="w-4 h-4 text-slate-950" />
-                <span>Let’s Talk About This Budget</span>
+                <Sparkles className="w-4 h-4 text-cyan-300" />
+                <span>Discuss This Scope With Our Engineers</span>
               </Link>
             </div>
           </div>

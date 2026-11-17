@@ -37,28 +37,28 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         {toasts.map((toast) => (
           <div
             key={toast.id}
-            className={`pointer-events-auto flex items-start gap-3 p-4 rounded-xl border backdrop-blur-xl shadow-2xl transition-all duration-300 animate-slideIn ${
+            className={`pointer-events-auto flex items-start gap-3 p-4 rounded-2xl border backdrop-blur-2xl shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all duration-300 animate-slideIn ${
               toast.type === "success"
-                ? "bg-slate-900/95 border-emerald-500/40 text-emerald-300"
+                ? "bg-[#0D1424]/95 border-emerald-500/40 text-emerald-300"
                 : toast.type === "error"
-                ? "bg-slate-900/95 border-rose-500/40 text-rose-300"
-                : "bg-slate-900/95 border-brand-blue/40 text-brand-blue"
+                ? "bg-[#0D1424]/95 border-rose-500/40 text-rose-300"
+                : "bg-[#0D1424]/95 border-blue-500/40 text-blue-300"
             }`}
           >
             <div className="mt-0.5 flex-shrink-0">
               {toast.type === "success" && <CheckCircle2 className="w-5 h-5 text-emerald-400" />}
               {toast.type === "error" && <AlertCircle className="w-5 h-5 text-rose-400" />}
-              {toast.type === "info" && <Info className="w-5 h-5 text-brand-cyan" />}
+              {toast.type === "info" && <Info className="w-5 h-5 text-cyan-400" />}
             </div>
             <div className="flex-1">
               <h4 className="text-sm font-semibold text-white">{toast.title}</h4>
               {toast.message && (
-                <p className="text-xs text-slate-300 mt-0.5 leading-relaxed">{toast.message}</p>
+                <p className="text-xs text-slate-300 mt-1 leading-relaxed">{toast.message}</p>
               )}
             </div>
             <button
               onClick={() => removeToast(toast.id)}
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-slate-400 hover:text-white transition-colors p-1"
               aria-label="Close notification"
             >
               <X className="w-4 h-4" />
