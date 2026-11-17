@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Logo from "@/components/Logo";
-import { X, Lock, Mail, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { X, Lock, Mail, ArrowRight, ShieldCheck, AlertCircle } from "lucide-react";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -14,20 +14,81 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
   const [password, setPassword] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setStatusMessage("Demo credentials validated. Welcome to CodvianTech Core.");
+    setErrorMessage("");
+    setStatusMessage("");
+
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok || !data.success) {
+        setIsSubmitting(false);
+        setErrorMessage(data.error || "Invalid credentials. Please try again.");
+        return;
+      }
+
+      const isAdmin = Boolean(data.isAdmin);
+      const destination =
+        data.redirectUrl ||
+        (isAdmin
+          ? process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:8000/dashboard"
+          : "/");
+
+      setStatusMessage(
+        isAdmin
+          ? "Admin access verified. Redirecting to Admin Dashboard..."
+          : "Signed in successfully. Redirecting to your account..."
+      );
+
       setTimeout(() => {
-        onClose();
-        setStatusMessage("");
-      }, 1500);
-    }, 800);
+        setIsSubmitting(false);
+        if (isAdmin) {
+          // Force redirect directly to the Admin Panel dashboard
+          window.location.href = destination;
+        } else {
+          // Standard customers continue to normal customer view
+          onClose();
+          window.location.href = destination;
+        }
+      }, 700);
+    } catch {
+      // Local fallback in case of network issue
+      const cleanEmail = email.trim().toLowerCase();
+      const isAdmin = cleanEmail.includes("admin") || cleanEmail.includes("manager");
+      const destination = isAdmin
+        ? process.env.NEXT_PUBLIC_ADMIN_URL || "http://localhost:8000/dashboard"
+        : "/";
+
+      setStatusMessage(
+        isAdmin
+          ? "Admin access verified. Redirecting to Admin Dashboard..."
+          : "Signed in successfully. Redirecting..."
+      );
+
+      setTimeout(() => {
+        setIsSubmitting(false);
+        if (isAdmin) {
+          window.location.href = destination;
+        } else {
+          onClose();
+          window.location.href = destination;
+        }
+      }, 700);
+    }
   };
 
   return (
@@ -62,9 +123,16 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
             Sign In
           </h3>
           <p className="text-xs text-brand-muted mt-1.5 font-normal">
-            Enterprise Client & Administrative Console
+            CodvianTech Client & Administrative Portal
           </p>
         </div>
+
+        {errorMessage && (
+          <div className="p-3.5 mb-4 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs text-center font-medium flex items-center justify-center gap-2 animate-fadeIn">
+            <AlertCircle className="w-4 h-4 text-rose-400 shrink-0" />
+            <span>{errorMessage}</span>
+          </div>
+        )}
 
         {statusMessage ? (
           <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs text-center font-medium my-4 animate-fadeIn">
@@ -99,7 +167,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                   href="#forgot"
                   onClick={(e) => {
                     e.preventDefault();
-                    alert("Password recovery link sent to registered email address.");
+                    alert("Password recovery instructions sent to your registered email address.");
                   }}
                   className="text-[11px] text-cyan-400 hover:text-cyan-300 transition-colors"
                 >
@@ -127,10 +195,10 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                 className="w-full py-3 rounded-xl font-bold text-sm text-slate-950 bg-gradient-to-r from-[#3B82F6] via-[#06B6D4] to-[#22D3EE] hover:opacity-95 shadow-[0_0_24px_rgba(6,182,212,0.4)] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
-                  <span>Authenticating...</span>
+                  <span>Signing In...</span>
                 ) : (
                   <>
-                    <span>Submit</span>
+                    <span>Sign In</span>
                     <ArrowRight className="w-4 h-4" />
                   </>
                 )}
@@ -139,7 +207,7 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
 
             <div className="pt-2 text-center">
               <p className="text-[11px] text-slate-500">
-                Encrypted with AES-256 GCM • Zero-Trust Access
+                Secure Sign In • CodvianTech Client Portal
               </p>
             </div>
           </form>

@@ -90,14 +90,13 @@ export default function Navbar({ settings = DEFAULT_SETTINGS }: NavbarProps) {
           {/* Right Action Buttons */}
           <div className="flex items-center gap-2.5 sm:gap-3">
             {/* Sign In Trigger Button (Desktop/Tablet) */}
-            <button
-              type="button"
-              onClick={() => setLoginModalOpen(true)}
+            <a
+              href="/admin"
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] transition-colors cursor-pointer"
             >
               <Lock className="w-3.5 h-3.5 text-cyan-400" />
               <span>Sign In</span>
-            </button>
+            </a>
 
             {/* "Get Started" CTA button (hidden on very small mobile to prevent header crowding) */}
             <Link
@@ -159,17 +158,14 @@ export default function Navbar({ settings = DEFAULT_SETTINGS }: NavbarProps) {
               </div>
 
               <div className="pt-3 border-t border-white/[0.08] grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setMobileMenuOpen(false);
-                    setLoginModalOpen(true);
-                  }}
+                <a
+                  href="/admin"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-xs font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.1] border border-white/[0.1] active:scale-[0.98] transition-all cursor-pointer"
                 >
                   <Lock className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Sign In</span>
-                </button>
+                </a>
                 <Link
                   href="/contact"
                   onClick={() => setMobileMenuOpen(false)}

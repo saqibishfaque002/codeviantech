@@ -110,7 +110,7 @@
           <span>Codvian</span><span class="text-brand-cyan">Tech</span>
           <span class="text-xs font-mono px-2 py-0.5 rounded-md bg-brand-blue/20 text-brand-blue border border-brand-blue/30 uppercase tracking-wider ml-1">Admin</span>
         </h2>
-        <p class="text-xs text-slate-400 mt-1">Operational Command & Secure Authentication</p>
+        <p class="text-xs text-slate-400 mt-1">Management Portal & Team Sign In</p>
       </div>
     </div>
 

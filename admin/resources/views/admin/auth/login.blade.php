@@ -51,7 +51,7 @@
     </div>
 
     <button type="submit" class="w-full py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-brand-blue to-[#3a5ed4] hover:from-[#6c97ff] hover:to-[#476de6] shadow-lg shadow-brand-blue/30 hover:shadow-brand-blue/50 hover:-translate-y-0.5 active:translate-y-0 transition-all text-sm flex items-center justify-center gap-2">
-      <span>Authenticate &amp; Access Admin</span>
+      <span>Sign In to Admin Panel</span>
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
     </button>
   </form>

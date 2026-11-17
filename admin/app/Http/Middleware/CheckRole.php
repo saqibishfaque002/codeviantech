@@ -22,6 +22,10 @@ class CheckRole
         }
 
         if (!$user->hasRole($roles)) {
+            // If the user is a standard customer, keep them on the customer view
+            if ($user->role === 'customer' || !$user->hasRole(['super_admin', 'admin', 'manager'])) {
+                return redirect(config('app.customer_url', env('CUSTOMER_APP_URL', 'http://localhost:3000/')));
+            }
             abort(403, __('admin.unauthorized'));
         }
 

@@ -98,7 +98,7 @@ const SOLUTIONS_DATA = [
     ],
     metrics: [
       { label: "Patient No-Show Rate", value: "Reduced by 42%" },
-      { label: "Data Encryption", value: "AES-256 at Rest & Transit" },
+      { label: "Data Protection", value: "Enterprise-Grade Privacy" },
       { label: "Booking Accessibility", value: "24/7 Multi-Channel" },
     ],
   },
