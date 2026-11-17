@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #081326;
+  --bg-soft: #0d1b32;
+  --panel: #10213b;
+  --panel-light: #162a4a;
+  --text: #f4f7fc;
+  --muted: #a8b5c9;
+  --blue: #5b8cff;
+  --cyan: #55d6e8;
+  --line: rgba(180, 203, 238, 0.14);
+  --max: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #081326;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b3257;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b4b7d;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: linear-gradient(135deg, rgba(16, 33, 59, 0.85), rgba(12, 27, 49, 0.75));
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(91, 140, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(110deg, #ffffff 5%, #8eb4ff 50%, #55d6e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(110deg, #5b8cff 0%, #55d6e8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Glow */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hide Next.js Development Indicators & DevTools Overlay */
+nextjs-portal,
+[data-nextjs-dev-tools-button],
+[data-nextjs-dev-tools-trigger],
+[data-next-badge],
+[data-nextjs-toast],
+[data-nextjs-dialog-overlay],
+[data-nextjs-dialog],
+div[data-nextjs-dev-tools],
+div[data-nextjs-router-panel],
+button[data-nextjs-dev-tools-button],
+#nextjs-dev-tools-header {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
