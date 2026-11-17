@@ -19,7 +19,7 @@ class DashboardController extends Controller
             'converted_leads' => Inquiry::where('status', 'converted')->count(),
             'total_services' => Service::where('is_active', true)->count(),
             'total_solutions' => Solution::where('is_active', true)->count(),
-            'total_team' => User::count(),
+            'total_team' => User::count(), //
         ];
 
         $recentInquiries = Inquiry::latest()->take(6)->get();
